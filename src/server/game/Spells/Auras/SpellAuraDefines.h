@@ -359,7 +359,7 @@ enum AuraType
     SPELL_AURA_SET_VEHICLE_ID                               = 296,
     SPELL_AURA_BLOCK_SPELL_FAMILY                           = 297,
     SPELL_AURA_STRANGULATE                                  = 298,
-    SPELL_AURA_299                                          = 299,
+    SPELL_AURA_MOD_DAMAGE_DONE_RACE                         = 299,  // Bset: Race Check.
     SPELL_AURA_SHARE_DAMAGE_PCT                             = 300,
     SPELL_AURA_SCHOOL_HEAL_ABSORB                           = 301,
     SPELL_AURA_302                                          = 302,

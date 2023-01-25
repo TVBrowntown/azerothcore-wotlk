@@ -36,6 +36,10 @@ enum SpellEffIndex
 #define EFFECT_FIRST_FOUND 254
 #define EFFECT_ALL 255
 
+#define SPELL_IMMOVABLE 80502
+#define SPELL_UNSTOPPABLE 80503
+#define SPELL_UNRESTRAINABLE 80504
+
 // loot modes for creatures and gameobjects, bitmask!
 enum LootModes
 {
@@ -120,17 +124,19 @@ enum Classes
     CLASS_MAGE          = 8, // TITLE Mage
     CLASS_WARLOCK       = 9, // TITLE Warlock
     //CLASS_UNK           = 10,
-    CLASS_DRUID         = 11 // TITLE Druid
+    CLASS_DRUID         = 11, // TITLE Druid
+    CLASS_KNIGHT        = 12, // TITLE Knight
+    CLASS_BERSERKER     = 13 // TITLE Berserker
 };
 
 // max+1 for player class
-#define MAX_CLASSES       12
+#define MAX_CLASSES       14
 
 #define CLASSMASK_ALL_PLAYABLE \
     ((1<<(CLASS_WARRIOR-1))|(1<<(CLASS_PALADIN-1))|(1<<(CLASS_HUNTER-1))| \
     (1<<(CLASS_ROGUE-1))  |(1<<(CLASS_PRIEST-1)) |(1<<(CLASS_SHAMAN-1))| \
     (1<<(CLASS_MAGE-1))   |(1<<(CLASS_WARLOCK-1))|(1<<(CLASS_DRUID-1)) | \
-    (1<<(CLASS_DEATH_KNIGHT-1)))
+    (1<<(CLASS_KNIGHT-1))   |(1<<(CLASS_BERSERKER-1))|(1<<(CLASS_DEATH_KNIGHT-1)))
 
 // valid classes for creature_template.unit_class
 enum UnitClass
@@ -2827,6 +2833,10 @@ inline uint8 ClassByQuestSort(int32 QuestSort)
             return CLASS_DRUID;
         case QUEST_SORT_DEATH_KNIGHT:
             return CLASS_DEATH_KNIGHT;
+//        case QUEST_SORT_KNIGHT:
+//            return CLASS_KNIGHT;
+//       case QUEST_SORT_BERSERKER:
+//            return CLASS_BERSERKER;
     }
     return 0;
 }
@@ -3514,7 +3524,9 @@ enum SpellFamilyNames
     // 14 - unused
     SPELLFAMILY_DEATHKNIGHT = 15,
     // 16 - unused
-    SPELLFAMILY_PET         = 17
+    SPELLFAMILY_PET         = 17,
+    SPELLFAMILY_KNIGHT      = 18,
+    SPELLFAMILY_BERSERKER   = 19
 };
 
 enum TradeStatus

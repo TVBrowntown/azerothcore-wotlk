@@ -11297,6 +11297,12 @@ float Unit::SpellPctDamageModsDone(Unit* victim, SpellInfo const* spellProto, Da
         if ((creatureTypeMask & uint32((*i)->GetMiscValue())) && spellProto->ValidateAttribute6SpellDamageMods(this, *i, damagetype == DOT))
             AddPct(DoneTotalMod, (*i)->GetAmount());
 
+    uint32 creatureRace = victim->getRace();
+    AuraEffectList const& mDamageDoneRace = GetAuraEffectsByType(SPELL_AURA_MOD_DAMAGE_DONE_RACE);
+    for (AuraEffectList::const_iterator i = mDamageDoneRace.begin(); i != mDamageDoneRace.end(); ++i)
+        if ((creatureRace == (*i)->GetMiscValue()) && spellProto->ValidateAttribute6SpellDamageMods(this, *i, damagetype == DOT))
+            AddPct(DoneTotalMod, (*i)->GetAmount());
+
     // bonus against aurastate
     AuraEffectList const& mDamageDoneVersusAurastate = GetAuraEffectsByType(SPELL_AURA_MOD_DAMAGE_DONE_VERSUS_AURASTATE);
     for (AuraEffectList::const_iterator i = mDamageDoneVersusAurastate.begin(); i != mDamageDoneVersusAurastate.end(); ++i)
