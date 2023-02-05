@@ -11304,6 +11304,8 @@ float Unit::SpellPctDamageModsDone(Unit* victim, SpellInfo const* spellProto, Da
         if ((creatureRace == (*i)->GetMiscValue()) && spellProto->ValidateAttribute6SpellDamageMods(this, *i, damagetype == DOT))
             AddPct(DoneTotalMod, (*i)->GetAmount());
 
+    // BSET: percent damage to race.
+
     // bonus against aurastate
     AuraEffectList const& mDamageDoneVersusAurastate = GetAuraEffectsByType(SPELL_AURA_MOD_DAMAGE_DONE_VERSUS_AURASTATE);
     for (AuraEffectList::const_iterator i = mDamageDoneVersusAurastate.begin(); i != mDamageDoneVersusAurastate.end(); ++i)

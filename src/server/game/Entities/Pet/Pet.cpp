@@ -2445,6 +2445,13 @@ float Pet::GetNativeObjectScale() const
             if (displayInfo->scale > 1.f && GetCreatureTemplate()->IsExotic())
                 scale *= displayInfo->scale;
 
+        if (Player* player = GetOwner()->ToPlayer())
+        {
+            if (player->getRace() == RACE_ORC)
+                scale += 0.2f;
+        }
+        // BSET: Greenskins get bigger pets.
+        
         return scale;
     }
 
